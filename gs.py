@@ -4,11 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.secret_key = "hello"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://users.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.permanent_session_lifetime = timedelta(days=5)
 
-db=SQLAlchemy(app)
+db = SQLAlchemy(app)
 
 class users(db.Model):
     _id = db.Column("id",db.Integer, primary_key=True)
